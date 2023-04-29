@@ -144,7 +144,7 @@ def main():
     prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
     string_data = describeDictionary(prompt_dict) # creates string data
     survey_score = sumScore(numerical_dict) # creates response sum
-    gpt_response = gpt(string_data, "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") # creates gpt response
+    gpt_response = gpt(string_data, "sk-ymXlsss9AlzpzDOWsmTpglsT3BlbkFJs3WR2rk6SbfHQr8aV6Yg") # creates gpt response
     print(gpt_response)
     print(survey_score)
 
