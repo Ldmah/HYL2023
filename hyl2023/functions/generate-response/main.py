@@ -103,7 +103,7 @@ def numericalDict(body):
     """
 
     q6_value = body.get('q6')
-    if isinstance(q6_value, (int, Decimal)):
+    if isinstance(q6_value, (int)):
         if q6_value < 5:
             body['q6'] = 1
         elif q6_value <= 10:
@@ -134,11 +134,11 @@ def transformPromptDictionary(dictionary):
     """
     prompt_dict = {}
     for key, value in dictionary.items():
-        if Decimal(value) >= 3:
+        if (value) >= 3:
             prompt_dict[key] = 'good'
         else:
-            prompt_dict[key] = 'bad' if Decimal(value) <= 2 else value
-            prompt_dict[key] = 'good' if Decimal(value) == 4 else prompt_dict[key]
+            prompt_dict[key] = 'bad' if (value) <= 2 else value
+            prompt_dict[key] = 'good' if (value) == 4 else prompt_dict[key]
     return prompt_dict
 
 
@@ -184,7 +184,7 @@ def describeDictionary(dictionary):
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        sum += Decimal(num)
+        sum += (num)
     return sum
 
 
