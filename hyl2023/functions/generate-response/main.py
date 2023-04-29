@@ -134,11 +134,11 @@ def transformPromptDictionary(dictionary):
     """
     prompt_dict = {}
     for key, value in dictionary.items():
-        if (value) >= 3:
+        if (int(value)) >= 3:
             prompt_dict[key] = 'good'
         else:
-            prompt_dict[key] = 'bad' if (value) <= 2 else value
-            prompt_dict[key] = 'good' if (value) == 4 else prompt_dict[key]
+            prompt_dict[key] = 'bad' if (int(value)) <= 2 else value
+            prompt_dict[key] = 'good' if (int(value)) == 4 else prompt_dict[key]
     return prompt_dict
 
 
