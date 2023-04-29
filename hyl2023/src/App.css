@@ -82,6 +82,32 @@
   font-size: 1.4rem;
 }
 
+.text-border {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+}
+
+.section-header {
+  margin: 2rem;
+}
+
+.picture {
+  max-width: 15rem;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* RECYCLE.JS CSS */
 #Recycle {
   /* margin-top: 20rem; */
