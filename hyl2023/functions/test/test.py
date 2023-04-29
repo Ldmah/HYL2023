@@ -1,83 +1,3 @@
-import json
-import requests
-import boto3
-
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table("environment-data")
-
-def lambda_handler(event, context):
-    client = boto3.client('ssm')
-    response = client.get_parameters_by_path(
-        Path='/hyl2023',
-        Recursive=True,
-        WithDecryption=True
-    )
-
-    gpt_key = response["Parameters"][0]["Value"]
-
-    body = event["body"] # Need to retrieve all data here as a json
-
-    # # THINGS TO DO HERE
-    # # 1. Save uuid (or id) into a variable (make sure this is sent in header, not body)
-    # # 2. Save all survey information into a string
-    # # 3. Make a call via the gpt function
-    # # 4. Save the response from the gpt function into data (as shown below)
-    # # 5. SORT USER INFORMATION INTO NUMERICAL VALUES FOR COMPARISON LATER (INTO DYNAMODB, WILL NEED TO EDIT DATA JSON DIRECTLY BENEATH THIS --> DEPENDS ON THE QUESTIONS WE ASK)
-
-    # data = {
-    #     id: submission_id,
-    #     gpt_string: gpt_response,
-    #     score: survey_score,
-    # }
-
-    # json_data = json.dumps(data)
-
-    # try:
-    #     body = json.loads(json_data)
-    #     table.put_item(Item=body)
-    
-    # except Exception as e:
-    #     print(e)
-    #     print('Error loading JSON data')
-    #     return {
-    #         'statusCode': 500,
-    #         'body': json.dumps('Error loading JSON data')
-    #     }
-    print("Terraform test success")
-        
-    return {
-        'statusCode': 200,
-        'body': json.dumps('OpenAI retrieval and database upload success!')
-    }
-
-
-def gpt(data, gpt_key):
-    request = f"Here is some information about a person's environmental impact. What are they doing good? What can they improve upon? "
-    request +=data # MAY NEED TO EDIT THIS LATER BASED ON FORMAT OF INFO BEING PUSHED TO THE BACKEND
-
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {gpt_key}"
-    }
-
-    info = {
-        "prompt": request,
-        "model": "text-davinci-003",
-        "max_tokens": 500,
-        "temperature": 0.8
-    }
-
-    url = "https://api.openai.com/v1/completions"
-    
-    response = requests.post(url, headers=headers, data=json.dumps(info))
-    gpt_response = response.json()
-    text_string = gpt_response['choices'][0]['text']
-    text_string = text_string.strip()
-
-    return text_string
-
-
-
 def numericalDict(body):
     """
     Transform the value of q8 in a dictionary to a numerical score based on a range.
@@ -93,22 +13,19 @@ def numericalDict(body):
         >>> numericalSort(body)
         {'q8': 0.5}
     """
-
-    ## FIX q6 TOO
-    q8_value = body.get('q6')
+    q8_value = body.get('q8')
     if isinstance(q8_value, (int, float)):
         if q8_value < 5:
-            body['q6'] = 0
+            body['q8'] = 0
         elif q8_value <= 10:
-            body['q6'] = 0.25
+            body['q8'] = 0.25
         elif q8_value <= 15:
-            body['q6'] = 0.5
+            body['q8'] = 0.5
         elif q8_value <= 20:
-            body['q6'] = 0.75
+            body['q8'] = 0.75
         else:
-            body['q6'] = 1
+            body['q8'] = 1
     return body
-
 
 def transformPromptDictionary(dictionary):
     """
@@ -132,6 +49,7 @@ def transformPromptDictionary(dictionary):
             prompt_dict[key] = 'bad' if float(value) <= 0.5 else value
             prompt_dict[key] = 'good' if float(value) == 1 else prompt_dict[key]
     return prompt_dict
+
 
 
 def describeDictionary(dictionary):
@@ -173,16 +91,19 @@ def describeDictionary(dictionary):
     surveyDescription = " ".join(descriptions)
     return surveyDescription
 
-def sumScore(numericalDict):
-    sum = 0
-    for num in numericalDict.values():
-        total += float(num)
-    return total
+my_dict = {
+    "q1": "1",
+    "q2": "0.75",
+    "q3": "0.75",
+    "q4": "0.25",
+    "q5": "0.25",
+    "q7": "1",
+    "q8": "1",
+    "q9": "1",
+    "q10": "0.75"
+}
 
-
-
-
-
-
-
-
+my_dict = numericalDict(my_dict)
+promptDict = transformPromptDictionary(my_dict)
+nori = describeDictionary(promptDict)
+print(nori)
