@@ -208,6 +208,14 @@ input[type = "text"] {
   padding: 20px;
   font-size: large;
 }
+button{
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  width: 50rem
+}
 .flex {
   display: flex;
   justify-content: center;
