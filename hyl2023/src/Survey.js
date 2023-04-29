@@ -23,7 +23,7 @@ function Survey() {
 
     const generate = async(answers) => { 
         console.log("asdf")
-        temp_id = uuidv4()
+        let temp_id = uuidv4()
         const res = await fetch ("https://jc43jylvi73olagacvrdizwgxm0rzqjm.lambda-url.ca-central-1.on.aws/",
             {
                 method: "POST",
