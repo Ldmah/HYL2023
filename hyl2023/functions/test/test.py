@@ -13,15 +13,29 @@ def numericalDict(body):
         >>> numericalSort(body)
         {'q8': 0.5}
     """
+
+    ## FIX q8 TOO
+    q6_value = body.get('q6')
     q8_value = body.get('q8')
+    if isinstance(q6_value, (int, float)):
+        if q6_value < 5:
+            body['q6'] = 0
+        elif q6_value <= 10:
+            body['q6'] = 0.25
+        elif q6_value <= 15:
+            body['q6'] = 0.5
+        elif q6_value <= 20:
+            body['q6'] = 0.75
+        else:
+            body['q6'] = 1
     if isinstance(q8_value, (int, float)):
-        if q8_value < 5:
+        if q6_value < 1:
             body['q8'] = 0
-        elif q8_value <= 10:
+        elif q6_value <= 2:
             body['q8'] = 0.25
-        elif q8_value <= 15:
+        elif q6_value <= 3:
             body['q8'] = 0.5
-        elif q8_value <= 20:
+        elif q6_value <= 4:
             body['q8'] = 0.75
         else:
             body['q8'] = 1
@@ -49,8 +63,6 @@ def transformPromptDictionary(dictionary):
             prompt_dict[key] = 'bad' if float(value) <= 0.5 else value
             prompt_dict[key] = 'good' if float(value) == 1 else prompt_dict[key]
     return prompt_dict
-
-
 
 def describeDictionary(dictionary):
     """
