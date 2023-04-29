@@ -1,12 +1,15 @@
-
 import React, { useState } from 'react';
 
 function Recycle() {
 
     const [item, setItem] = useState(null);
     const [response, setResponse] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);  // Add a state to keep track of loading status
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        setIsLoading(true);  // Set loading status to true
+
         fetch("https://5wrrznk2skxdxthx5mpph3duvy0kldhu.lambda-url.ca-central-1.on.aws/", {
           method: "POST",
           body: JSON.stringify({ item: item }),
@@ -14,10 +17,12 @@ function Recycle() {
           .then((response) => response.json())
           .then((data) => {
             setResponse(data);
-            console.log(data)
+            console.log(data);
+            setIsLoading(false);  // Set loading status to false
           })
           .catch((error) => {
             console.error(error);
+            setIsLoading(false);  // Set loading status to false
           });
       };
     
@@ -41,7 +46,7 @@ function Recycle() {
                     /> */}
                     <div>
                         <h3>
-                            Here lies an eco friendly AI that can aid in sorting your garbage
+                            Here lies an AI that can aid in proper disposal...
                         </h3>
                         <input 
                             type="text" 
@@ -50,7 +55,15 @@ function Recycle() {
                             onChange={(event) => setItem(event.target.value)}
                             required
                         />
-                        <button type='submit' className="btn btn-success">Submit</button>
+                        <button type='submit' className="btn btn-success" disabled={isLoading}>
+                            {isLoading ? (
+                                <div className="spinner-border text-light" role="status">
+                                    <span className="visually-hidden">&nbsp; Loading...</span>
+                                </div>
+                            ) : (
+                                "Submit"
+                            )}
+                        </button>
                     </div>
                 </form>
             </div>
