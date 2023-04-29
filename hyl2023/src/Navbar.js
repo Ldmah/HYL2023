@@ -29,7 +29,7 @@ function Navbar() {
                 </div>
             </div>
         </nav>
-        <div>
+        <div className='outlet'>
             <Outlet />
          </div>   
         </>

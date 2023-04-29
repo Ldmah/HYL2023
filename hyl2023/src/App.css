@@ -177,6 +177,31 @@ html, body {
 #survey{
   margin-top: 5rem;
   padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.outlet{
+  overflow: hidden;
+}
+#survey .q1,
+#survey .q2,
+#survey .q3,
+#survey .q4,
+#survey .q5,
+#survey .q6,
+#survey .q7,
+#survey .q8,
+#survey .q9,
+#survey .q10{
+  padding: 1rem;
+  font-size: larger;
+}
+#survey>button {
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+.hidden{
+  display:none
 }
 input[type = "text"] {
   width: 20rem;
