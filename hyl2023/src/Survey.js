@@ -32,7 +32,7 @@ function Survey() {
                             </label>
                         </div>
                     </li>
-                    <li>
+                    
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="Rarely" id="defaultCheck1c" onClick={(e) => jsonStore({ q1: e.target.value })} />
                         <label className="form-check-label" htmlFor="defaultCheck1c">
