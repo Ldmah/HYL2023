@@ -188,13 +188,13 @@ function Survey() {
                         {/* <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label> */}
                         <select class="custom-select" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}} >
                             <option selected>Choose...</option>
-                            <option value="0.25">1</option>
-                            <option value="0.25">2</option>
-                            <option value="0.5">3</option>
-                            <option value="0.5">4</option>
-                            <option value="0.75">5</option>
-                            <option value="0.75">6</option>
-                            <option value="1">7</option>
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="2">4</option>
+                            <option value="3">5</option>
+                            <option value="3">6</option>
+                            <option value="4">7</option>
                         </select>
                     </div>
                 </div>
@@ -234,10 +234,10 @@ function Survey() {
                         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" value={select10} onChange={(e) => { setSelect10(e.target.value); jsonStore({ q10: e.target.value })}} required>
                             <option selected>Choose...</option>
                             <option value="0">1</option>
-                            <option value="0.25">2</option>
-                            <option value="0.5">3</option>
-                            <option value="0.75">4</option>
-                            <option value="1">5</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="3">4</option>
+                            <option value="4">5</option>
                         </select>
                     </div>
                 </div>
@@ -251,6 +251,8 @@ function Survey() {
             generate(answers); 
             }}>Submit</button>        
         </form>
+   
+        
     )
 }
 

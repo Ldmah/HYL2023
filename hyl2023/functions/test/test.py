@@ -1,34 +1,63 @@
+import requests
+import json
+def gpt(data, gpt_key):
+    request = f"Here is some information about a person's environmental impact. What are they doing good? What can they improve upon? "
+    request +=data # MAY NEED TO EDIT THIS LATER BASED ON FORMAT OF INFO BEING PUSHED TO THE BACKEND
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {gpt_key}"
+    }
+
+    info = {
+        "prompt": request,
+        "model": "text-davinci-003",
+        "max_tokens": 500,
+        "temperature": 0.8
+    }
+
+    url = "https://api.openai.com/v1/completions"
+    
+    response = requests.post(url, headers=headers, data=json.dumps(info))
+    gpt_response = response.json()
+    text_string = gpt_response['choices'][0]['text']
+    text_string = text_string.strip()
+
+    return text_string
+
+
+
 def numericalDict(body):
     """
     Transform the value of q8 in a dictionary to a numerical score based on a range.
 
     Args:
-        body (dict): A dictionary containing the key 'q8' with a value that is either an int or a float.
+        body (dict): A dictionary containing the key 'q6' with a value that is either an int or a float.
 
     Returns:
-        dict: A new dictionary with the same keys as the input, but with the value of 'q8' transformed to a numerical score.
+        dict: A new dictionary with the same keys as the input, but with the value of 'q6' transformed to a numerical score.
 
     Ex:
-        >>> body = {'q1':5,'q8': 12}
+        >>> body = {'q1':5,'6': 12}
         >>> numericalSort(body)
         {'q8': 0.5}
     """
 
-    ## FIX q8 TOO
     q6_value = body.get('q6')
-    q8_value = body.get('q8')
-    if isinstance(q6_value, (int, float)):
+    if isinstance(q6_value, (int)):
         if q6_value < 5:
-            body['q6'] = 0
-        elif q6_value <= 10:
-            body['q6'] = 0.25
-        elif q6_value <= 15:
-            body['q6'] = 0.5
-        elif q6_value <= 20:
-            body['q6'] = 0.75
-        else:
             body['q6'] = 1
+        elif q6_value <= 10:
+            body['q6'] = 2
+        elif q6_value <= 15:
+            body['q6'] = 3
+        elif q6_value <= 20:
+            body['q6'] = 4
+        else:
+            body['q6'] = 4
+
     return body
+
 
 def transformPromptDictionary(dictionary):
     """
@@ -46,12 +75,13 @@ def transformPromptDictionary(dictionary):
     """
     prompt_dict = {}
     for key, value in dictionary.items():
-        if float(value) >= 0.75:
+        if (int(value)) >= 3:
             prompt_dict[key] = 'good'
         else:
-            prompt_dict[key] = 'bad' if float(value) <= 0.5 else value
-            prompt_dict[key] = 'good' if float(value) == 1 else prompt_dict[key]
+            prompt_dict[key] = 'bad' if (int(value)) <= 2 else value
+            prompt_dict[key] = 'good' if (int(value)) == 4 else prompt_dict[key]
     return prompt_dict
+
 
 def describeDictionary(dictionary):
     """
@@ -92,28 +122,33 @@ def describeDictionary(dictionary):
     surveyDescription = " ".join(descriptions)
     return surveyDescription
 
-my_dict = {
-    "q1": "1",
-    "q2": "0.75",
-    "q3": "0.75",
-    "q4": "0.25",
-    "q5": "0.25",
-    "q7": "1",
-    "q8": "1",
-    "q9": "1",
-    "q10": "0.75"
-}
-
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        sum += float(num)
+        sum += int(num)
     return sum
 
+my_dict = {
+    "q1": "4",
+    "q2": "3",
+    "q3": "1",
+    "q4": "2",
+    "q5": "4",
+    "q7": "3",
+    "q8": "3",
+    "q9": "2",
+    "q10": "1"
+}
 
-numericalDict = numericalDict(my_dict)
-promptDict = transformPromptDictionary(numericalDict)
-deez = sumScore(numericalDict) 
-nori = describeDictionary(promptDict)
-print(nori)
-print(deez)
+def main():
+    body = my_dict
+    numerical_dict = numericalDict(body) # creates numerical dictionary
+    prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
+    string_data = describeDictionary(prompt_dict) # creates string data
+    survey_score = sumScore(numerical_dict) # creates response sum
+    gpt_response = gpt(string_data, "nori") # creates gpt response
+    print(gpt_response)
+    print(survey_score)
+
+
+main()

@@ -3,7 +3,7 @@ import requests
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table("environment-data")
+table = dynamodb.Table("hyl2023-environment-data")
 
 def lambda_handler(event, context):
     client = boto3.client('ssm')
@@ -23,12 +23,16 @@ def lambda_handler(event, context):
     gpt_key = response["Parameters"][0]["Value"]
     submission_id = event["headers"]["id"]
 
-    body = event["body"] # Need to retrieve all data here as a json
+    body = json.loads(event["body"]) # Need to retrieve all data here as a json
+
     numerical_dict = numericalDict(body) # creates numerical dictionary
     prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
     string_data = describeDictionary(prompt_dict) # creates string data
     survey_score = sumScore(numerical_dict) # creates response sum
     gpt_response = gpt(string_data, gpt_key) # creates gpt response
+    print(gpt_response)
+    print(survey_score)
+
 
     data = {
         "id": submission_id,
@@ -101,18 +105,17 @@ def numericalDict(body):
     """
 
     q6_value = body.get('q6')
-    q8_value = body.get('q8')
-    if isinstance(q6_value, (int, float)):
+    if isinstance(q6_value, (int)):
         if q6_value < 5:
-            body['q6'] = 0
-        elif q6_value <= 10:
-            body['q6'] = 0.25
-        elif q6_value <= 15:
-            body['q6'] = 0.5
-        elif q6_value <= 20:
-            body['q6'] = 0.75
-        else:
             body['q6'] = 1
+        elif q6_value <= 10:
+            body['q6'] = 2
+        elif q6_value <= 15:
+            body['q6'] = 3
+        elif q6_value <= 20:
+            body['q6'] = 4
+        else:
+            body['q6'] = 4
 
     return body
 
@@ -133,11 +136,11 @@ def transformPromptDictionary(dictionary):
     """
     prompt_dict = {}
     for key, value in dictionary.items():
-        if float(value) >= 0.75:
+        if (int(value)) >= 3:
             prompt_dict[key] = 'good'
         else:
-            prompt_dict[key] = 'bad' if float(value) <= 0.5 else value
-            prompt_dict[key] = 'good' if float(value) == 1 else prompt_dict[key]
+            prompt_dict[key] = 'bad' if (int(value)) <= 2 else value
+            prompt_dict[key] = 'good' if (int(value)) == 4 else prompt_dict[key]
     return prompt_dict
 
 
@@ -183,7 +186,7 @@ def describeDictionary(dictionary):
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        sum += float(num)
+        sum += int(num)
     return sum
 
 
