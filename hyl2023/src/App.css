@@ -208,13 +208,17 @@ input[type = "text"] {
   padding: 20px;
   font-size: large;
 }
-button{
+#survey>button{
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 20px;
   width: 50rem
+}
+select{
+  display:flex;
+  margin: 1rem;
 }
 .flex {
   display: flex;
