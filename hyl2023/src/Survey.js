@@ -183,13 +183,13 @@ function Survey() {
                 <span>6. On average, how many pounds of food do you waste per week?</span>
                 <select class="custom-select" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}} >
                             <option selected>Choose...</option>
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="2">3</option>
-                            <option value="2">4</option>
-                            <option value="3">5</option>
-                            <option value="3">6</option>
-                            <option value="4">7</option>
+                            <option value="4">1</option>
+                            <option value="4">2</option>
+                            <option value="3">3</option>
+                            <option value="3">4</option>
+                            <option value="2">5</option>
+                            <option value="2">6</option>
+                            <option value="1">7</option>
                         </select>
             </div>
             <div className={pageNum == 3?'q7':"hidden"}>
