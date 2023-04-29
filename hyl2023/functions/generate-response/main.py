@@ -176,8 +176,8 @@ def describeDictionary(dictionary):
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        total += float(num)
-    return total
+        sum += float(num)
+    return sum
 
 
 

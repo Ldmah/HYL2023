@@ -103,7 +103,16 @@ my_dict = {
     "q10": "0.75"
 }
 
-my_dict = numericalDict(my_dict)
-promptDict = transformPromptDictionary(my_dict)
+def sumScore(numericalDict):
+    sum = 0
+    for num in numericalDict.values():
+        sum += float(num)
+    return sum
+
+
+numericalDict = numericalDict(my_dict)
+promptDict = transformPromptDictionary(numericalDict)
+deez = sumScore(numericalDict) 
 nori = describeDictionary(promptDict)
 print(nori)
+print(deez)
