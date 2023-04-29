@@ -39,30 +39,49 @@ function Survey() {
 
     const generate = async(answers) => { 
         console.log("asdf")
-        setPageNum(5)
-        // const res = await fetch ("https://jc43jylvi73olagacvrdizwgxm0rzqjm.lambda-url.ca-central-1.on.aws/",
-        //     {
-        //         method: "POST",
-        //         headers: {
-        //         "Content-Type": "application/json",
-        //         "id": uuidv4(),
-        //     },
-        //         body: JSON.stringify(answers)
-        //     });
-        // const jsonRes = await res.json();
-        // console.log(jsonRes);
-        // if (res.status == 200)
-        // {
-        //     console.log("Post successful");
-        // }
-        // else {
-        //     console.log("Error. Did not return status code 200.");
-        // }
+        let temp_id = uuidv4()
+        const res = await fetch ("https://jc43jylvi73olagacvrdizwgxm0rzqjm.lambda-url.ca-central-1.on.aws/",
+            {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                "id": temp_id,
+            },
+                body: JSON.stringify(answers)
+            });
+        const jsonRes = await res.json();
+        console.log(jsonRes);
+        if (res.status == 200)
+        {
+            console.log("Post successful");
+        }
+        else {
+            console.log("Error. Did not return status code 200.");
+        }
+        const res2 = await fetch ("https://tye5uzke72oc2auxh6bqe35aj40etqji.lambda-url.ca-central-1.on.aws/",
+        {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            "id": temp_id,
+        },
+            body: JSON.stringify(answers)
+        });
+    const noriRes = await res.json();
+    console.log(noriRes);
+
+    if (res.status == 200 && res2.status == 200)
+    {
+        console.log("Post successful");
+    }
+    else {
+        console.log("Error. Did not return status code 200.");
+    }
     }
     return (
         <form id='survey'>
             <div className={pageNum == 0?'q1':"hidden"}>
-                <span>1. How often do you use public transportation to commute to your university?</span>
+                <span>1.How often do you use a refillable water bottle instead of single-use plastic water bottles?</span>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="q1Radios" value="Every Day" ref={el => selectedRadios.current[0] = el} id="defaultRadio1a" onClick={(e) => jsonStore({ q1: e.target.value })} required/>
                         <label className="form-check-label" htmlFor="defaultRadio1a">
@@ -178,9 +197,16 @@ function Survey() {
             </div>
             <div className={pageNum == 2?'q6':"hidden"}>
                 <span>6. On average, how many pounds of food do you waste per week?</span>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Amount of Food Wasted(pounds)" value = {foodWaste}  onChange={(e) => { setFoodWaste(e.target.value); jsonStore({ q6: e.target.value })}} reqiured/>
-                </div>
+                <select class="custom-select" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}} >
+                            <option selected>Choose...</option>
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="2">4</option>
+                            <option value="3">5</option>
+                            <option value="3">6</option>
+                            <option value="4">7</option>
+                        </select>
             </div>
             <div className={pageNum == 3?'q7':"hidden"}>
                 <span>7. Do you print double-sided or use digital resources instead of printing to reduce paper waste?</span>
