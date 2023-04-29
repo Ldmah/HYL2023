@@ -72,7 +72,7 @@ resource "aws_lambda_function" "lambda-disposal" {
 
   runtime = "python3.9"
 
-  timeout = 10
+  timeout = 5
 }
 
 
