@@ -1,6 +1,7 @@
 import json
 import requests
 import boto3
+from decimal import Decimal
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table("environment-data")
@@ -23,12 +24,14 @@ def lambda_handler(event, context):
     gpt_key = response["Parameters"][0]["Value"]
     submission_id = event["headers"]["id"]
 
-    body = event["body"] # Need to retrieve all data here as a json
+    body = json.loads(event["body"]) # Need to retrieve all data here as a json
+
     numerical_dict = numericalDict(body) # creates numerical dictionary
     prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
     string_data = describeDictionary(prompt_dict) # creates string data
     survey_score = sumScore(numerical_dict) # creates response sum
     gpt_response = gpt(string_data, gpt_key) # creates gpt response
+
 
     data = {
         "id": submission_id,
@@ -101,7 +104,7 @@ def numericalDict(body):
     """
 
     q6_value = body.get('q6')
-    if isinstance(q6_value, (int, float)):
+    if isinstance(q6_value, (int, Decimal)):
         if q6_value < 5:
             body['q6'] = 0
         elif q6_value <= 10:
@@ -132,11 +135,11 @@ def transformPromptDictionary(dictionary):
     """
     prompt_dict = {}
     for key, value in dictionary.items():
-        if float(value) >= 0.75:
+        if Decimal(value) >= 0.75:
             prompt_dict[key] = 'good'
         else:
-            prompt_dict[key] = 'bad' if float(value) <= 0.5 else value
-            prompt_dict[key] = 'good' if float(value) == 1 else prompt_dict[key]
+            prompt_dict[key] = 'bad' if Decimal(value) <= 0.5 else value
+            prompt_dict[key] = 'good' if Decimal(value) == 1 else prompt_dict[key]
     return prompt_dict
 
 
@@ -182,7 +185,7 @@ def describeDictionary(dictionary):
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        sum += float(num)
+        sum += Decimal(num)
     return sum
 
 

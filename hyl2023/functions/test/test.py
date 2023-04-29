@@ -1,3 +1,5 @@
+import requests
+import json
 def numericalDict(body):
     """
     Transform the value of q8 in a dictionary to a numerical score based on a range.
@@ -109,11 +111,42 @@ def sumScore(numericalDict):
     for num in numericalDict.values():
         sum += float(num)
     return sum
+def gpt(data, gpt_key):
+    request = f"Here is some information about a person's environmental impact. What are they doing good? What can they improve upon? "
+    request +=data # MAY NEED TO EDIT THIS LATER BASED ON FORMAT OF INFO BEING PUSHED TO THE BACKEND
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {gpt_key}"
+    }
+
+    info = {
+        "prompt": request,
+        "model": "text-davinci-003",
+        "max_tokens": 500,
+        "temperature": 0.8
+    }
+
+    url = "https://api.openai.com/v1/completions"
+    
+    response = requests.post(url, headers=headers, data=json.dumps(info))
+    gpt_response = response.json()
+    text_string = gpt_response['choices'][0]['text']
+    text_string = text_string.strip()
+
+    return text_string
 
 
-numericalDict = numericalDict(my_dict)
-promptDict = transformPromptDictionary(numericalDict)
-deez = sumScore(numericalDict) 
-nori = describeDictionary(promptDict)
-print(nori)
-print(deez)
+
+def main():
+    body = my_dict
+    numerical_dict = numericalDict(body) # creates numerical dictionary
+    prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
+    string_data = describeDictionary(prompt_dict) # creates string data
+    survey_score = sumScore(numerical_dict) # creates response sum
+    gpt_response = gpt(string_data, "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") # creates gpt response
+    print(gpt_response)
+    print(survey_score)
+
+
+main()

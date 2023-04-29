@@ -37,57 +37,54 @@ function Survey() {
     return (
         <form id='survey'>
             <div className='q1'>
-                <span>1. How often do you use public transportation to commute to your university?</span>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" value="Every Day" id="defaultCheck1a" onClick={(e) => jsonStore({ q1: e.target.value })} />
-                        <label className="form-check-label" htmlFor="defaultCheck1a">
-                            a. Every Day
-                        </label>
-                    </div>
-                
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" value="3-4 times a week" id="defaultCheck1b" onClick={(e) => jsonStore({ q1: e.target.value })} />
-                        <label className="form-check-label" htmlFor="defaultCheck1b">
-                            b. 3-4 times a week
-                        </label>
-                    </div>
-                
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" value="Rarely" id="defaultCheck1c" onClick={(e) => jsonStore({ q1: e.target.value })} />
-                        <label className="form-check-label" htmlFor="defaultCheck1c">
-                            c. Rarely
-                        </label>
-                    </div>
-                
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" value="Never" id="defaultCheck1d" onClick={(e) => jsonStore({ q1: e.target.value })} />
-                        <label className="form-check-label" htmlFor="defaultCheck1d">
-                            d. Never
-                        </label>
-                    </div>
+                <span>1.How often do you use a refillable water bottle instead of single-use plastic water bottles?</span>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck1a" onClick={(e) => jsonStore({ q1: e.target.value })} />
+                    <label className="form-check-label" htmlFor="defaultCheck1a">
+                        a. Every Day
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="0.75" id="defaultCheck1b" onClick={(e) => jsonStore({ q1: e.target.value })} />
+                    <label className="form-check-label" htmlFor="defaultCheck1b">
+                        b. A few times a week
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="0.5" id="defaultCheck1c" onClick={(e) => jsonStore({ q1: e.target.value })} />
+                    <label className="form-check-label" htmlFor="defaultCheck1c">
+                        c. Rarely
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck1d" onClick={(e) => jsonStore({ q1: e.target.value })} />
+                    <label className="form-check-label" htmlFor="defaultCheck1d">
+                        d. Never
+                    </label>
+                </div>
             </div>
             <div className='q2'>
                 <span>2. How often do you recycle paper, plastic, and glass?</span>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="Every Day" id="defaultCheck2a" onClick={(e) => jsonStore({ q2: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck2a" onClick={(e) => jsonStore({ q2: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck2a">
                         a. Every Day
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="A few times a week" id="defaultCheck2b" onClick={(e) => jsonStore({ q2: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.75" id="defaultCheck2b" onClick={(e) => jsonStore({ q2: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck2b">
                         b. A few times a week
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="Rarely" id="defaultCheck2c" onClick={(e) => jsonStore({ q2: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.5" id="defaultCheck2c" onClick={(e) => jsonStore({ q2: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck2c">
                         c. Rarely
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="exampleRadios" value="Never" id="defaultCheck2d" onClick={(e) => jsonStore({ q2: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck2d" onClick={(e) => jsonStore({ q2: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck2d">
                         d. Never
                     </label>
@@ -97,25 +94,25 @@ function Survey() {
             <div className='q3'>
                 <span>3. How often do you turn off lights and electronics when they are not in use?</span>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Every Day" id="defaultCheck3a" onClick={(e) => jsonStore({ q3: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck3a" onClick={(e) => jsonStore({ q3: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck3a">
                         a. Every Day
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="A few times a week" id="defaultCheck3b" onClick={(e) => jsonStore({ q3: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.75" id="defaultCheck3b" onClick={(e) => jsonStore({ q3: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck3b">
                         b. A few times a week
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Rarely" id="defaultCheck3c" onClick={(e) => jsonStore({ q3: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.5" id="defaultCheck3c" onClick={(e) => jsonStore({ q3: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck3c">
                         c. Rarely
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Never" id="defaultCheck3d" onClick={(e) => jsonStore({ q3: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck3d" onClick={(e) => jsonStore({ q3: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck3d">
                         d. Never
                     </label>
@@ -124,13 +121,13 @@ function Survey() {
             <div className='q4'>
                 <span>4. Have you ever participated in a community cleanup or other environmental activity?</span>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Yes" id="defaultCheck4a" onClick={(e) => jsonStore({ q4: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck4a" onClick={(e) => jsonStore({ q4: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck4a">
                         a. Yes
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="No" id="defaultCheck4b" onClick={(e) => jsonStore({ q4: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck4b" onClick={(e) => jsonStore({ q4: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck4b">
                         b. No
                     </label>
@@ -139,13 +136,13 @@ function Survey() {
             <div className='q5'>
                 <span>5. Have you ever participated in a clothing swap or donated clothes to a thrift store to reduce textile waste?</span>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Yes" id="defaultCheck5a" onClick={(e) => jsonStore({ q5: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck5a" onClick={(e) => jsonStore({ q5: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck5a">
                         a. Yes
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="No" id="defaultCheck5b" onClick={(e) => jsonStore({ q5: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck5b" onClick={(e) => jsonStore({ q5: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck5b">
                         b. No
                     </label>
@@ -160,13 +157,13 @@ function Survey() {
             <div className='q7'>
                 <span>7. Do you print double-sided or use digital resources instead of printing to reduce paper waste?</span>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Yes" id="defaultCheck7a" onClick={(e) => jsonStore({ q7: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck7a" onClick={(e) => jsonStore({ q7: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck7a">
                         a. Yes
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="No" id="defaultCheck7b" onClick={(e) => jsonStore({ q7: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck7b" onClick={(e) => jsonStore({ q7: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck7b">
                         b. No
                     </label>
@@ -179,13 +176,13 @@ function Survey() {
                         {/* <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label> */}
                         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}}>
                             <option selected>Choose...</option>
-                            <option value="0.25">1</option>
-                            <option value="0.25">2</option>
-                            <option value="0.5">3</option>
-                            <option value="0.5">4</option>
-                            <option value="0.75">5</option>
-                            <option value="0.75">6</option>
-                            <option value="1">7</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
                         </select>
                     </div>
                 </div>
@@ -193,25 +190,25 @@ function Survey() {
             <div className='q9'>
                 <span>9. How much do you care about buying products with minimal/recyclable packaging? </span>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Every Day" id="defaultCheck9a" onClick={(e) => jsonStore({ q9: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="1" id="defaultCheck9a" onClick={(e) => jsonStore({ q9: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck9a">
                         a. A lot 
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="A few times a week" id="defaultCheck9b" onClick={(e) => jsonStore({ q9: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.75" id="defaultCheck9b" onClick={(e) => jsonStore({ q9: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck9b">
                         b. Somewhat
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Rarely" id="defaultCheck9c" onClick={(e) => jsonStore({ q9: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.5" id="defaultCheck9c" onClick={(e) => jsonStore({ q9: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck9c">
                         c. A little
                     </label>
                 </div>
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" value="Never" id="defaultCheck9d" onClick={(e) => jsonStore({ q9: e.target.value })} />
+                    <input className="form-check-input" type="checkbox" value="0.25" id="defaultCheck9d" onClick={(e) => jsonStore({ q9: e.target.value })} />
                     <label className="form-check-label" htmlFor="defaultCheck9d">
                         d. Not at all
                     </label>
@@ -233,11 +230,14 @@ function Survey() {
                     </div>
                 </div>
             </div>
+
             <button type="submit" class="btn btn-primary" onClick={(event) => { 
             event.preventDefault(); 
             generate(answers); 
             }}>Submit</button>        
         </form>
+   
+        
     )
 }
 
