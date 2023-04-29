@@ -184,7 +184,7 @@ def describeDictionary(dictionary):
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        sum += (num)
+        sum += int(num)
     return sum
 
 
