@@ -41,7 +41,6 @@
   /* margin-top: 20rem; */
   margin-top: 50px !important;
   min-height: 100vh;
-  background-color: #DAF5FF;
   color: black;
 }
 .about-team-name {
@@ -67,7 +66,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 55px;
+  margin: 2rem;
+  padding: 0rem;
 }
 .about-us-text > h2 {
   font-weight: bold;
@@ -93,16 +93,18 @@
 }
 
 .section-header {
-  margin: 3rem;
+  margin: 2rem;
 }
 
 .picture {
-  max-width: 20rem;
-  max-height: 20rem;
+  max-width: 15rem;
+  max-height: 15rem;
   width: auto;
   height: auto;
 }
 
-.about-contact-info {
-  
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

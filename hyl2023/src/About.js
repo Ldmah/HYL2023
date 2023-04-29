@@ -31,7 +31,7 @@ function About() {
                     <h2 className='about-us-h2 section-header'>
                         About Us
                     </h2>
-                    <div>
+                    <div className="flex">
                         <img 
                             src="https://static.vecteezy.com/system/resources/previews/001/839/727/original/young-woman-hugging-world-planet-earth-free-vector.jpg" 
                             alt="Picture of personal holding a globe"
