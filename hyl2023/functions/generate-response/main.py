@@ -6,42 +6,43 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table("environment-data")
 
 def lambda_handler(event, context):
-    client = boto3.client('ssm')
-    response = client.get_parameters_by_path(
-        Path='/hyl2023',
-        Recursive=True,
-        WithDecryption=True
-    )
+    # client = boto3.client('ssm')
+    # response = client.get_parameters_by_path(
+    #     Path='/hyl2023',
+    #     Recursive=True,
+    #     WithDecryption=True
+    # )
 
-    gpt_key = response["Parameters"][0]["Value"]
+    # gpt_key = response["Parameters"][0]["Value"]
 
-    body = event["body"] # Need to retrieve all data here as a json
+    # body = event["body"] # Need to retrieve all data here as a json
 
-    # THINGS TO DO HERE
-    # 1. Save uuid (or id) into a variable
-    # 2. Save all survey information into a string
-    # 3. Make a call via the gpt function
-    # 4. Save the response from the gpt function into data (as shown below)
-    # 5. SORT USER INFORMATION INTO NUMERICAL VALUES FOR COMPARISON LATER (INTO DYNAMODB, WILL NEED TO EDIT DATA JSON DIRECTLY BENEATH THIS --> DEPENDS ON THE QUESTIONS WE ASK)
+    # # THINGS TO DO HERE
+    # # 1. Save uuid (or id) into a variable
+    # # 2. Save all survey information into a string
+    # # 3. Make a call via the gpt function
+    # # 4. Save the response from the gpt function into data (as shown below)
+    # # 5. SORT USER INFORMATION INTO NUMERICAL VALUES FOR COMPARISON LATER (INTO DYNAMODB, WILL NEED TO EDIT DATA JSON DIRECTLY BENEATH THIS --> DEPENDS ON THE QUESTIONS WE ASK)
 
-    data = {
-        id: submission_id,
-        gpt_string: gpt_response,
-    }
+    # data = {
+    #     id: submission_id,
+    #     gpt_string: gpt_response,
+    # }
 
-    json_data = json.dumps(data)
+    # json_data = json.dumps(data)
 
-    try:
-        body = json.loads(json_data)
-        table.put_item(Item=body)
+    # try:
+    #     body = json.loads(json_data)
+    #     table.put_item(Item=body)
     
-    except Exception as e:
-        print(e)
-        print('Error loading JSON data')
-        return {
-            'statusCode': 500,
-            'body': json.dumps('Error loading JSON data')
-        }
+    # except Exception as e:
+    #     print(e)
+    #     print('Error loading JSON data')
+    #     return {
+    #         'statusCode': 500,
+    #         'body': json.dumps('Error loading JSON data')
+    #     }
+    print("Terraform test success")
         
     return {
         'statusCode': 200,
