@@ -22,7 +22,7 @@ def lambda_handler(event, context):
             counter += 1
             sum += int(item["score"])
         
-        avg = sum / counter
+        avg = sum // counter
 
         comparison = differenceFromAverage(user_data["score"], avg)
 
