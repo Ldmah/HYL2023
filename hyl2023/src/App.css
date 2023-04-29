@@ -46,7 +46,7 @@ html, body {
   align-items: center;
   /* opacity: 0.75; */
 }
-.about-team-name > h2 {
+.about-team-name > h1 {
   color: white; 
   font-weight: bold;
   text-align: center;
@@ -128,11 +128,11 @@ html, body {
 
 /* RECYCLE.JS CSS */
 #Recycle {
-  /* margin-top: 20rem; */
   margin-top: 50px !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #F0F0F0;
 }
 .recycle-title {
   background-image: url(https://utahrecyclingalliance.org/wp-content/uploads/2019/06/1-1024x512.png);
@@ -152,22 +152,16 @@ html, body {
   opacity: 1; 
 }
 #recycling-form {
-  /* background-image: url(https://4kwallpapers.com/images/wallpapers/aesthetic-landscape-grass-field-green-grass-clear-sky-blue-1920x1200-1405.png);
-  background-size: cover;
-  background-position: center;
-  opacity: 0.85; */
-
-  flex: 1;
+  margin-bottom: 35px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 #recycling-form > div {
-  /* margin-top: 80px; */
+  margin-top: 50px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 #recycling-form > div > button {
@@ -186,6 +180,8 @@ html, body {
 }
 input[type = "text"] {
   width: 20rem;
+  padding: 20px;
+  font-size: large;
 }
 .flex {
   display: flex;
@@ -196,58 +192,16 @@ input[type = "text"] {
 .card {
   margin: 1rem;
 }
-
-/* RECYCLE.JS CSS */
-#Recycle {
-  /* margin-top: 20rem; */
-  margin-top: 50px !important;
-  min-height: 100vh;
+#response {
   display: flex;
   flex-direction: column;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
-.recycle-title {
-  background-image: url(https://utahrecyclingalliance.org/wp-content/uploads/2019/06/1-1024x512.png);
-  background-size: contain;
-  background-position: center;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} 
-.recycle-title > h2 {
-  color: black; 
-  font-weight: bolder;
-  text-align: center;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  font-size: 4.4rem;
-  opacity: 1; 
+#response > h3 {
+  font-size: 2em;
+  margin-bottom: 10px;
 }
-#recycling-form {
-  /* background-image: url(https://4kwallpapers.com/images/wallpapers/aesthetic-landscape-grass-field-green-grass-clear-sky-blue-1920x1200-1405.png);
-  background-size: cover;
-  background-position: center;
-  opacity: 0.85; */
-
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#recycling-form > div {
-  /* margin-top: 80px; */
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#recycling-form > div > button {
-  width: 200px;
-  height: 50px;
-  margin-top: 20px;
-}
-#recycling-form > div > input {
-  width: 770px;
-  height: 60px;
-  margin-top: 20px;
+#response > p {
+  font-size: larger;
 }
