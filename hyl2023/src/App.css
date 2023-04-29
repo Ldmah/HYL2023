@@ -37,21 +37,21 @@
   }
 } */
 
-/* ABOUT.JS CSS */
 #about {
   /* margin-top: 20rem; */
   margin-top: 50px !important;
   min-height: 100vh;
+  color: black;
 }
 .about-team-name {
   background-image: url(https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3NDE0ODQ4MjYxMjY4NDg2/date-palm-tree.png);
   background-size: cover;
   background-position: center;
-  height: 300px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.85;
+  /* opacity: 0.75; */
 }
 .about-team-name > h2 {
   color: white; 
@@ -66,7 +66,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 55px;
+  margin: 2rem;
+  padding: 0rem;
 }
 .about-us-text > h2 {
   font-weight: bold;
