@@ -2,9 +2,10 @@ import Navbar from "./Navbar";
 
 function About() {
     return (
-        <div>
+        <div className="nfkldsajf">
             nori
         </div>
+        
     )
 }
 
