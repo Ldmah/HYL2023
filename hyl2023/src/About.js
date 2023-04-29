@@ -48,11 +48,7 @@ function About() {
                         </p>
                     </div>
                 </div>
-
-                <div className="about-contact-info">
-                    
-                </div>
-
+                
             </div>
         </>
         

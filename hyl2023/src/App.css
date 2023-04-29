@@ -17,7 +17,9 @@ html, body {
 }
 
 #features {
-  margin: 10rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-bottom: 10rem;
 }
 
 #footer {
@@ -74,12 +76,19 @@ html, body {
   font-size: 1.4rem;
 }
 
+#waste-info > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .waste-info-h2 {
   text-align: center;
   font-weight: bold;
   border-bottom: 3px solid rgb(1, 122, 1);
-  
-} 
+  width: fit-content;
+}
 
 .text-border {
   text-shadow:
@@ -105,6 +114,15 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.flex > img {
+  padding-bottom: 40px;
+}
+.flex > p {
+  font-size: large;
+}
+#waste-info > div > p {
+  font-size: large;
 }
 
 
