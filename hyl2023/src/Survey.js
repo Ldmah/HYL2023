@@ -30,7 +30,6 @@ function Survey() {
         }
         questions.forEach((question, index) => {
             if (!selectedRadios.current[index].current || !selectedRadios.current[index].current.checked) {
-              hasAnswer = false;
             }
           });
           
