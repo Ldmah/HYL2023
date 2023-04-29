@@ -94,7 +94,7 @@
   background-image: url(https://utahrecyclingalliance.org/wp-content/uploads/2019/06/1-1024x512.png);
   background-size: contain;
   background-position: center;
-  height: 400px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,14 +108,22 @@
   opacity: 1; 
 }
 #recycling-form {
+  /* background-image: url(https://4kwallpapers.com/images/wallpapers/aesthetic-landscape-grass-field-green-grass-clear-sky-blue-1920x1200-1405.png);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85; */
+
+  flex: 1;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #recycling-form > div {
-  margin-top: 100px;
+  /* margin-top: 80px; */
   padding: 20px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 #recycling-form > div > button {

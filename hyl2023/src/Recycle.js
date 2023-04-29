@@ -17,12 +17,12 @@ function Recycle() {
                 </div>
 
                 <form id="recycling-form">
-                    <img 
+                    {/* <img 
                         src="https://img.freepik.com/premium-vector/green-friendly-robot-artificial-intelligence-cartoon-vector-illustration-white-background_223337-4080.jpg?w=2000"
                         alt="Picture of flowers" 
                         width="500"
                         height="500"
-                    />
+                    /> */}
                     <div>
                         <h3>
                             Here lies an eco friendly AI that can aid in sorting your garbage
