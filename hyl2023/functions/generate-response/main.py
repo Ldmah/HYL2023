@@ -3,7 +3,7 @@ import requests
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table("environment-data")
+table = dynamodb.Table("hyl2023-environment-data")
 
 def lambda_handler(event, context):
     client = boto3.client('ssm')
@@ -23,12 +23,15 @@ def lambda_handler(event, context):
     gpt_key = response["Parameters"][0]["Value"]
     submission_id = event["headers"]["id"]
 
-    body = event["body"] # Need to retrieve all data here as a json
+    body = json.loads(event["body"]) # Need to retrieve all data here as a json
+    print(body)
     numerical_dict = numericalDict(body) # creates numerical dictionary
     prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
     string_data = describeDictionary(prompt_dict) # creates string data
     survey_score = sumScore(numerical_dict) # creates response sum
     gpt_response = gpt(string_data, gpt_key) # creates gpt response
+    print(gpt_response)
+    print(survey_score)
 
     data = {
         "id": submission_id,
