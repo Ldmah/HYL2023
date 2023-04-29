@@ -22,9 +22,9 @@ function About() {
             <div id="about">
 
                 <div className="about-team-name">
-                    <h2>
-                        <h1 className="text-border"><span ref={el} /></h1>
-                    </h2>
+
+                    <h1 className="text-border"><span ref={el} /></h1>
+
                 </div>
 
                 <div className='about-us-text'>
