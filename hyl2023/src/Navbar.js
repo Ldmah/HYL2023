@@ -23,7 +23,7 @@ function Navbar() {
                 <div className={`collapse navbar-collapse ${collapsed ? '' : 'show'}`} id="navbarNavAltMarkup">
                     <div className="navbar-nav ms-auto navbar-collapse-custom">
                         <a className="nav-link active me-3" aria-current="page" href="/About.js">About Us</a>
-                        <a className="nav-link me-3" href="#mission">Disposal Help</a>
+                        <a className="nav-link me-3" href="Recycle.js">Disposal Help</a>
                         <a className="nav-link me-3" href="/Survey.js">Survey</a>
                     </div>
                 </div>

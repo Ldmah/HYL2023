@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route element={<Navbar />} >
           <Route path="/" element={<About />} />
+          <Route path="/About.js" element={<About />} />
           <Route path="/Survey.js" element={<Survey />} /> 
           <Route path="/Recycle.js" element={<Recycle />} /> 
         </Route>

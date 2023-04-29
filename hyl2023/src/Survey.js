@@ -2,13 +2,13 @@ import React, { useState, useRef } from 'react';
 import Navbar from './Navbar';
 
 function Survey() {
-    const [answers, setAnswers] = useState({})
+    const [answers, setAnswers] = useState({}) // users answers are here in json format of {question number: answer}
     const [foodWaste, setFoodWaste] = useState("")
     const [select8, setSelect8] = useState()
     const [select10, setSelect10] = useState()
     const jsonStore = (answer) => {
         if(!(answer in answers))
-            setAnswers({ ...answers, ...answer })
+            setAnswers({ ...answers, ...answer }) 
     }
     console.log(answers)
     return (
