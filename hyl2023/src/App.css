@@ -41,9 +41,11 @@
   /* margin-top: 20rem; */
   margin-top: 50px !important;
   min-height: 100vh;
+  background-color: #0A4D68;
+  color: white;
 }
 .about-team-name {
-  background-image: url(https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3NDE0ODQ4MjYxMjY4NDg2/date-palm-tree.png);
+  background-image: url(https://cosmosmagazine.com/wp-content/uploads/2023/02/GettyImages-1306441450.jpg);
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -79,6 +81,22 @@
   margin-top: 60px;
   max-width: 700px;
   font-size: 1.4rem;
+}
+
+.text-border {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+}
+
+.picture {
+  max-width: 20rem;
+  max-height: 20rem;
+  width: auto;
+  height: auto;
 }
 
 .about-contact-info {

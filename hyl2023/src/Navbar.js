@@ -14,7 +14,7 @@ function Navbar() {
             <div className="container-fluid">
                 {/* <a className="navbar-brand fw-bold" href="#">Team Nori Elite - HYL 2023</a> */}
 
-                <a className="navbar-brand fw-bold" href="#">The Zero-Waste Initiative</a>
+                <a className="navbar-brand fw-bold" href="#">The EcoHelp Initiative</a>
                
                 <button className="navbar-toggler" type="button" onClick={toggleNavbar} aria-expanded={!collapsed} aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@ function Navbar() {
                 <div className={`collapse navbar-collapse ${collapsed ? '' : 'show'}`} id="navbarNavAltMarkup">
                     <div className="navbar-nav ms-auto navbar-collapse-custom">
                         <a className="nav-link active me-3" aria-current="page" href="/About.js">About Us</a>
-                        <a className="nav-link me-3" href="#mission">Our Mission</a>
+                        <a className="nav-link me-3" href="#mission">Disposal Help</a>
                         <a className="nav-link me-3" href="/Survey.js">Survey</a>
                     </div>
                 </div>

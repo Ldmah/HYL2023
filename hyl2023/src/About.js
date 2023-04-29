@@ -6,7 +6,7 @@ function About() {
   
     React.useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["Hi, we are Team Nori Elite.", 'Welcome to our Hack Your Learning 2023 Project!', 'An informative waste tracker.'],
+            strings: ['The EcoHelp Initiative'],
             typeSpeed: 30,
         });
         
@@ -23,7 +23,7 @@ function About() {
 
                 <div className="about-team-name">
                     <h2>
-                        <h1><span ref={el} /></h1>
+                        <h1 className="text-border"><span ref={el} /></h1>
                     </h2>
                 </div>
 
@@ -34,12 +34,13 @@ function About() {
                     <div>
                         <img 
                             src="https://static.vecteezy.com/system/resources/previews/001/839/727/original/young-woman-hugging-world-planet-earth-free-vector.jpg" 
-                            alt="Picture of flowers" 
+                            alt="Picture of personal holding a globe"
+                            className="picture" 
                             width="400" 
                             height="400"
                         />
                         <p>
-                            The Zero-Waste Initiative aims to promote waste management, minimize waste production, 
+                            The EcoHelp Initiative aims to promote waste management, minimize waste production, 
                             and increase recycling and composting efforts through a comprehensive survey-based program based off your history. 
                             This data-driven approach will allow us to create targeted educational and incentive-based programs that cater 
                             to the specific needs of individuals, communities, schools, and businesses, ultimately fostering a more 
