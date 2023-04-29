@@ -37,6 +37,7 @@
   }
 } */
 
+/* ABOUT.JS CSS */
 #about {
   /* margin-top: 20rem; */
   margin-top: 50px !important;
@@ -46,11 +47,11 @@
   background-image: url(https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3NDE0ODQ4MjYxMjY4NDg2/date-palm-tree.png);
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* opacity: 0.75; */
+  opacity: 0.85;
 }
 .about-team-name > h2 {
   color: white; 
@@ -81,6 +82,49 @@
   font-size: 1.4rem;
 }
 
-.about-contact-info {
-  
+/* RECYCLE.JS CSS */
+#Recycle {
+  /* margin-top: 20rem; */
+  margin-top: 50px !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.recycle-title {
+  background-image: url(https://utahrecyclingalliance.org/wp-content/uploads/2019/06/1-1024x512.png);
+  background-size: contain;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.recycle-title > h2 {
+  color: black; 
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 4.4rem;
+  opacity: 1; 
+}
+#recycling-form {
+  display: flex;
+}
+#recycling-form > div {
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+#recycling-form > div > button {
+  width: 200px;
+  height: 50px;
+  margin-top: 20px;
+}
+#recycling-form > div > input {
+  width: 770px;
+  height: 60px;
+  margin-top: 20px;
 }
