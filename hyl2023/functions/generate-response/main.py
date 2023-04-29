@@ -3,7 +3,7 @@ import requests
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table("environment-data")
+table = dynamodb.Table("hyl2023-environment-data")
 
 def lambda_handler(event, context):
     client = boto3.client('ssm')
@@ -30,6 +30,8 @@ def lambda_handler(event, context):
     string_data = describeDictionary(prompt_dict) # creates string data
     survey_score = sumScore(numerical_dict) # creates response sum
     gpt_response = gpt(string_data, gpt_key) # creates gpt response
+    print(gpt_response)
+    print(survey_score)
 
 
     data = {
@@ -184,7 +186,7 @@ def describeDictionary(dictionary):
 def sumScore(numericalDict):
     sum = 0
     for num in numericalDict.values():
-        sum += (num)
+        sum += int(num)
     return sum
 
 

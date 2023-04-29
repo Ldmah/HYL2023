@@ -2,7 +2,7 @@ import json
 import boto3
 
 dynamodb_resource = boto3.resource("dynamodb")
-table = dynamodb_resource.Table("environment-data")
+table = dynamodb_resource.Table("hyl2023-environment-data")
 
 def lambda_handler(event, context):
     try:
