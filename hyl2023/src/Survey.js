@@ -3,6 +3,11 @@ import Navbar from './Navbar';
 import { v4 as uuidv4 } from "uuid";
 
 function Survey() {
+    const [submitted, setSubmitted] = useState(false);
+
+    const [gpt, setGPT] = useState(null);
+    const [compare, setCompare] = useState(null);
+
     const [answers, setAnswers] = useState({}) // users answers are here in json format of {question number: answer}
     const [foodWaste, setFoodWaste] = useState("")
     const [select8, setSelect8] = useState()
@@ -39,6 +44,7 @@ function Survey() {
         if (res.status == 200)
         {
             console.log("Post successful");
+            setSubmitted(true);
         }
         else {
             console.log("Error. Did not return status code 200.");
@@ -54,6 +60,9 @@ function Survey() {
         });
     const noriRes = await res2.json();
     console.log(noriRes);
+    setCompare(noriRes['data']['compare'])
+    setGPT(noriRes['data']['gpt_response'])
+    setPageNum(pageNum+1)
 
     if (res.status == 200 && res2.status == 200)
     {
@@ -65,8 +74,10 @@ function Survey() {
         setIsLoading(false);
     }
     }
+
     return (
-        <form id='survey'>
+        <>
+        <form id='survey' className={(submitted) ? "hiddenPage" : ""}>
             <div className={pageNum == 0?'q1':"hidden"}>
                 <span>1.How often do you use a refillable water bottle instead of single-use plastic water bottles?</span>
                     <div className="form-check">
@@ -271,9 +282,9 @@ function Survey() {
                     </div>
                 </div>
             </div>
-            <div className={pageNum == 5?'feedback':"hidden"}>
+            {/* <div className={pageNum == 5 ?'feedback':"hidden"}>
                 this is a feedback page
-            </div>
+            </div> */}
             <button type="submit" class={pageNum !== 4 && pageNum !== 5?'btn btn-primary':"hidden"} onClick={(event) => handlePageChange(event)}>Next</button> 
             <button type="submit" class={pageNum == 4?'btn btn-primary':"hidden"} onClick={(event) => { 
             event.preventDefault(); 
@@ -290,7 +301,18 @@ function Survey() {
             </button>        
         </form>
    
-        
+        <div className={(submitted) ? "feedback" : "hiddenPage"}>
+            <h1>
+                Generated Feedback
+            </h1>
+            <p>
+                {gpt}
+            </p>
+            <p id='comparison'>
+                {compare}
+            </p>
+        </div>
+        </>
     )
 }
 
