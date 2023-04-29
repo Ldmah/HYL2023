@@ -1,48 +1,39 @@
-/* .App {
-  text-align: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-color: #fff;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 #about {
   /* margin-top: 20rem; */
-  margin-top: 50px !important;
-  min-height: 100vh;
   color: black;
 }
+
+#waste-info {
+  margin: 10rem;
+}
+
+#features {
+  margin: 10rem;
+}
+
+#footer {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #343a40;
+  color: white;
+  padding-top: 1.2rem;
+  padding-bottom: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 0rem;
+}
+
 .about-team-name {
   background-image: url(https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3NDE0ODQ4MjYxMjY4NDg2/date-palm-tree.png);
   background-size: cover;
@@ -82,6 +73,13 @@
   max-width: 700px;
   font-size: 1.4rem;
 }
+
+.waste-info-h2 {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 3px solid rgb(1, 122, 1);
+  
+} 
 
 .text-border {
   text-shadow:
@@ -177,6 +175,9 @@ input[type = "text"] {
   align-items: center;
 }
 
+.card {
+  margin: 1rem;
+}
 
 /* RECYCLE.JS CSS */
 #Recycle {

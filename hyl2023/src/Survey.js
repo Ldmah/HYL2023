@@ -207,7 +207,6 @@ function Survey() {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
