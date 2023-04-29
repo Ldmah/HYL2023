@@ -66,8 +66,17 @@ function Recycle() {
                         </button>
                     </div>
                 </form>
+                {response && 
+                <div id="response">
+                    <h3>
+                        Here's what you should do:
+                    </h3>
+                    <p>
+                        {response}
+                    </p>
+                </div>
+                }
             </div>
-            {response && <div id="response">{response}</div>}
         </>
     );
 }
