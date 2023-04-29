@@ -7,6 +7,7 @@ function Survey() {
     const [foodWaste, setFoodWaste] = useState("")
     const [select8, setSelect8] = useState()
     const [select10, setSelect10] = useState()
+    const [isLoading, setIsLoading] = useState(false);
     let [pageNum,setPageNum] = useState(0)
     const jsonStore = (answer) => {
         if(!(answer in answers))
@@ -22,7 +23,7 @@ function Survey() {
     }
 
     const generate = async(answers) => { 
-        console.log("asdf")
+        setIsLoading(true);
         let temp_id = uuidv4()
         const res = await fetch ("https://jc43jylvi73olagacvrdizwgxm0rzqjm.lambda-url.ca-central-1.on.aws/",
             {
@@ -57,9 +58,11 @@ function Survey() {
     if (res.status == 200 && res2.status == 200)
     {
         console.log("Post successful");
+        setIsLoading(false);
     }
     else {
         console.log("Error. Did not return status code 200.");
+        setIsLoading(false);
     }
     }
     return (
@@ -275,7 +278,16 @@ function Survey() {
             <button type="submit" class={pageNum == 4?'btn btn-primary':"hidden"} onClick={(event) => { 
             event.preventDefault(); 
             generate(answers); 
-            }}>Submit</button>        
+            }}>
+                {isLoading ? (
+                                <div className="spinner-border text-light" role="status">
+                                    <span className="visually-hidden">&nbsp; Loading...</span>
+                                </div>
+                            ) : (
+                                "Submit"
+                )}
+            
+            </button>        
         </form>
    
         
