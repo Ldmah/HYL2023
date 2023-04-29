@@ -16,12 +16,16 @@ resource "aws_s3_bucket" "hyl2023-waste-management" {
 }
 
 
-# BEGINNING OF GENERATE-RESPONSE TERRAFORM
+# BEGINNING OF GENERATE-RESPONSE TERRAFORM AND DISPOSAL HELP TERRAFORM
 
 locals {
   generate_function_name = "generate-response"
   generate_handler_name  = "main.lambda_handler"
   generate_artifact_name = "${local.generate_function_name}/artifact.zip"
+
+  disposal_function_name = "disposal-response"
+  disposal_handler_name = "main.lambda_handler"
+  disposal_artifact_name = "${local.disposal_function_name}/artifact.zip"
 }
 
 resource "aws_iam_role" "lambda" {
@@ -55,6 +59,20 @@ resource "aws_lambda_function" "lambda-generate" {
   runtime = "python3.9"
 
   timeout = 20
+}
+
+resource "aws_lambda_function" "lambda-disposal" {
+  s3_bucket = aws_s3_bucket.hyl2023-waste-management.bucket
+  # the artifact needs to be in the bucket first. Otherwise, this will fail.
+  s3_key        = local.disposal_artifact_name
+  role          = aws_iam_role.lambda.arn
+  function_name = local.disposal_function_name
+  handler       = local.disposal_handler_name
+  source_code_hash = filebase64sha256("../functions/disposal-info/main.py")
+
+  runtime = "python3.9"
+
+  timeout = 10
 }
 
 
@@ -109,8 +127,25 @@ resource "aws_lambda_function_url" "generate-url" {
   }
 }
 
+resource "aws_lambda_function_url" "disposal-url" {
+  function_name      = aws_lambda_function.lambda-disposal.function_name
+  authorization_type = "NONE"
+
+  cors {
+    allow_credentials = true
+    allow_origins     = ["*"]
+    allow_methods     = ["POST", "GET"]
+    allow_headers     = ["*"]
+    expose_headers    = ["keep-alive", "date"]
+  }
+}
+
 output "generate_url" {
   value = aws_lambda_function_url.generate-url.function_url
+}
+
+output "disposal_url" {
+  value = aws_lambda_function_url.disposal-url.function_url
 }
 
 # BEGINNING OF RETRIEVE LAMBDA TERRAFORM

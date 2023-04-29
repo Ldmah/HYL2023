@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
+import Recycle from './Recycle';
 import Navbar from './Navbar';
 import About from './About';
 import Survey from './Survey';
@@ -13,7 +14,8 @@ function App() {
       <Routes>
         <Route element={<Navbar />} >
           <Route path="/" element={<About />} />
-          <Route path="/Survey.js" element={<Survey />} />  
+          <Route path="/Survey.js" element={<Survey />} /> 
+          <Route path="/Recycle.js" element={<Recycle />} /> 
         </Route>
       </Routes>
     </BrowserRouter>
