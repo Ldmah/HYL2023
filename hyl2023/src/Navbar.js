@@ -12,7 +12,9 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top custom-nav" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand fw-bold" href="#">Team Nori Elite - HYL 2023</a>
+                {/* <a className="navbar-brand fw-bold" href="#">Team Nori Elite - HYL 2023</a> */}
+
+                <a className="navbar-brand fw-bold" href="#">The Zero-Waste Initiative</a>
                
                 <button className="navbar-toggler" type="button" onClick={toggleNavbar} aria-expanded={!collapsed} aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

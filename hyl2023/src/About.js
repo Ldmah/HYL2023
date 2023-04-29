@@ -20,7 +20,38 @@ function About() {
     return (
         <>
             <div id="about">
-                <h1><span ref={el} /></h1>
+
+                <div className="about-team-name">
+                    <h2>
+                        <h1><span ref={el} /></h1>
+                    </h2>
+                </div>
+
+                <div className='about-us-text'>
+                    <h2 className='about-us-h2'>
+                        About Us
+                    </h2>
+                    <div>
+                        <img 
+                            src="https://static.vecteezy.com/system/resources/previews/001/839/727/original/young-woman-hugging-world-planet-earth-free-vector.jpg" 
+                            alt="Picture of flowers" 
+                            width="400" 
+                            height="400"
+                        />
+                        <p>
+                            The Zero-Waste Initiative aims to promote waste management, minimize waste production, 
+                            and increase recycling and composting efforts through a comprehensive survey-based program based off your history. 
+                            This data-driven approach will allow us to create targeted educational and incentive-based programs that cater 
+                            to the specific needs of individuals, communities, schools, and businesses, ultimately fostering a more 
+                            environmentally sustainable society.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="about-contact-info">
+                    
+                </div>
+
             </div>
         </>
         

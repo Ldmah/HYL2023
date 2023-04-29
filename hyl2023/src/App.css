@@ -38,5 +38,49 @@
 } */
 
 #about {
-  margin-top: 20rem;
+  /* margin-top: 20rem; */
+  margin-top: 50px !important;
+  min-height: 100vh;
+}
+.about-team-name {
+  background-image: url(https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3NDE0ODQ4MjYxMjY4NDg2/date-palm-tree.png);
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.75; */
+}
+.about-team-name > h2 {
+  color: white; 
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+  opacity: 1; 
+}
+.about-us-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 55px;
+}
+.about-us-text > h2 {
+  font-weight: bold;
+  border-bottom: 3px solid rgb(1, 122, 1);
+}
+.about-us-text > div {
+  display: flex;
+}
+.about-us-text > div > p {
+  margin-left: 80px;
+  margin-top: 60px;
+  max-width: 700px;
+  font-size: 1.4rem;
+}
+
+.about-contact-info {
+  
 }
