@@ -39,3 +39,15 @@ def lambda_handler(event, context):
             "data": "NEED TO REPLACE THIS LATER WITH ACTUAL DATA IN JSON FORMAT RAHHH"
         })
     }
+
+
+
+def differenceFromAverage(score, average):
+    difference = score - average
+    percentDifference = difference/average * 100
+    if percentDifference > 0:
+        tempString = f"You performed better than the average person by  {percentDifference}%."
+    else:
+        tempString = f"You performed worse than the average person by  {abs(percentDifference)}% of other people who took this survey."
+
+    return tempString    
