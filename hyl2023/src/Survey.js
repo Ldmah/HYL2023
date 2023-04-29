@@ -153,13 +153,13 @@ function Survey() {
                         {/* <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label> */}
                         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}}>
                             <option selected>Choose...</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
+                            <option value="0.25">1</option>
+                            <option value="0.25">2</option>
+                            <option value="0.5">3</option>
+                            <option value="0.5">4</option>
+                            <option value="0.75">5</option>
+                            <option value="0.75">6</option>
+                            <option value="1">7</option>
                         </select>
                     </div>
                 </div>

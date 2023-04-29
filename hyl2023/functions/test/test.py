@@ -28,17 +28,6 @@ def numericalDict(body):
             body['q6'] = 0.75
         else:
             body['q6'] = 1
-    if isinstance(q8_value, (int, float)):
-        if q6_value < 1:
-            body['q8'] = 0
-        elif q6_value <= 2:
-            body['q8'] = 0.25
-        elif q6_value <= 3:
-            body['q8'] = 0.5
-        elif q6_value <= 4:
-            body['q8'] = 0.75
-        else:
-            body['q8'] = 1
     return body
 
 def transformPromptDictionary(dictionary):
