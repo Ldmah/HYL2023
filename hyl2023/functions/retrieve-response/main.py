@@ -23,8 +23,10 @@ def lambda_handler(event, context):
             counter += 1
             sum += int(item["score"])
         
+        print(user_data["score"])
+        
         avg = Decimal(sum / counter)
-
+        print(avg)
         comparison = differenceFromAverage(user_data["score"], avg)
 
         
@@ -60,8 +62,8 @@ def differenceFromAverage(score, average):
     difference = score - average
     percentDifference = Decimal(difference/average) * 100
     if percentDifference > 0:
-        tempString = f"You performed better than the average person by  {percentDifference}%."
+        tempString = f"You performed better than the average person by  {percentDifference:.2f}%."
     else:
-        tempString = f"You performed worse than the average person by  {abs(percentDifference)}% of other people who took this survey."
+        tempString = f"You performed worse than the average person by {abs(round(percentDifference, 2))}% of other people who took this survey."
 
     return tempString    
