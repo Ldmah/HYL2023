@@ -5,7 +5,6 @@ import './App.css';
 import Recycle from './Recycle';
 import Navbar from './Navbar';
 import Home from './Home';
-
 import Survey from './Survey';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
