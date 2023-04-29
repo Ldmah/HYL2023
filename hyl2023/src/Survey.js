@@ -10,6 +10,7 @@ function Survey() {
 
     const [answers, setAnswers] = useState({}) // users answers are here in json format of {question number: answer}
     const [foodWaste, setFoodWaste] = useState("")
+    const [select6,setSelect6] = useState() 
     const [select8, setSelect8] = useState()
     const [select10, setSelect10] = useState()
     const [isLoading, setIsLoading] = useState(false);
@@ -23,12 +24,14 @@ function Survey() {
 
     const handlePageChange = (e) => {
         e.preventDefault()
-
         setPageNum(pageNum+1)
     }
 
     const generate = async(answers) => { 
         setIsLoading(true);
+        setSelect6()
+        setSelect8()
+        setSelect10()
         let temp_id = uuidv4()
         const res = await fetch ("https://jc43jylvi73olagacvrdizwgxm0rzqjm.lambda-url.ca-central-1.on.aws/",
             {
@@ -195,7 +198,7 @@ function Survey() {
             </div>
             <div className={pageNum == 2?'q6':"hidden"}>
                 <span>6. On average, how many pounds of food do you waste per week?</span>
-                <select class="custom-select" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}} >
+                <select class="custom-select" value={select6} onChange={(e) => { setSelect6(e.target.value); jsonStore({ q6: e.target.value })}} >
                             <option selected>Choose...</option>
                             <option value="4">1</option>
                             <option value="4">2</option>
