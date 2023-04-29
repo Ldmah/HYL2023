@@ -101,7 +101,6 @@ def numericalDict(body):
     """
 
     q6_value = body.get('q6')
-    q8_value = body.get('q8')
     if isinstance(q6_value, (int, float)):
         if q6_value < 5:
             body['q6'] = 0
