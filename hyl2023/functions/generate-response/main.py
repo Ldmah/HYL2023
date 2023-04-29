@@ -22,13 +22,11 @@ def lambda_handler(event, context):
     # 2. Save all survey information into a string
     # 3. Make a call via the gpt function
     # 4. Save the response from the gpt function into data (as shown below)
-    # 5. Retrieve all information from the database and make a mathematical comparison
-    # 6. Save the comparison information into a string and put into data (as shown below)
+    # 5. SORT USER INFORMATION INTO NUMERICAL VALUES FOR COMPARISON LATER (INTO DYNAMODB, WILL NEED TO EDIT DATA JSON DIRECTLY BENEATH THIS --> DEPENDS ON THE QUESTIONS WE ASK)
 
     data = {
         id: submission_id,
         gpt_string: gpt_response,
-        comparison_string: calculations
     }
 
     json_data = json.dumps(data)
@@ -47,7 +45,7 @@ def lambda_handler(event, context):
         
     return {
         'statusCode': 200,
-        'body': json.dumps('Environment information calculation & OpenAI Retrieval Success!')
+        'body': json.dumps('OpenAI retrieval and database upload success!')
     }
 
 
