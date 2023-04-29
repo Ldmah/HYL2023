@@ -1,7 +1,6 @@
 import json
 import requests
 import boto3
-from decimal import Decimal
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table("environment-data")
