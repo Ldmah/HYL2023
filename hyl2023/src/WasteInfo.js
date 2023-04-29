@@ -2,7 +2,7 @@ function WasteInfo() {
     return (
         <div id="waste-info">
             <div>
-                <h2 className='waste-info-h2 section-header'>
+                <h2 className='waste-info-h2'>
                     Why Waste Management?
                 </h2>
                 <div className="flex"> 
@@ -21,11 +21,10 @@ function WasteInfo() {
                     />
                 </div>
                 <p>Below is a visual display of climate change and the predicted impact it will have through everyday temperatures.</p>
-                <div id="map">
-                    <iframe src="https://climatechange.codeforafrica.org/map.html#!/center=29.08065831249337%2C31.429953058381955&zoom=1.5&point=36.832800445739764%2C-1.2847089229405242" width="100%" height="600px" ></iframe>
-                </div>
             </div>
-
+            <div id="map">
+                    <iframe src="https://climatechange.codeforafrica.org/map.html#!/center=29.08065831249337%2C31.429953058381955&zoom=1.5&point=36.832800445739764%2C-1.2847089229405242" width="100%" height="600px" ></iframe>
+            </div>
 
         </div>
     )
