@@ -28,7 +28,7 @@ function About() {
                 </div>
 
                 <div className='about-us-text'>
-                    <h2 className='about-us-h2'>
+                    <h2 className='about-us-h2 section-header'>
                         About Us
                     </h2>
                     <div>
