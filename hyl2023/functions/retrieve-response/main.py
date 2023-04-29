@@ -1,5 +1,6 @@
 import json
 import boto3
+from decimal import Decimal
 
 dynamodb_resource = boto3.resource("dynamodb")
 table = dynamodb_resource.Table("hyl2023-environment-data")
@@ -22,7 +23,7 @@ def lambda_handler(event, context):
             counter += 1
             sum += int(item["score"])
         
-        avg = sum // counter
+        avg = Decimal(sum / counter)
 
         comparison = differenceFromAverage(user_data["score"], avg)
 
@@ -57,7 +58,7 @@ def lambda_handler(event, context):
 
 def differenceFromAverage(score, average):
     difference = score - average
-    percentDifference = difference/average * 100
+    percentDifference = Decimal(difference/average) * 100
     if percentDifference > 0:
         tempString = f"You performed better than the average person by  {percentDifference}%."
     else:

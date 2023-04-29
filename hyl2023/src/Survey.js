@@ -51,16 +51,16 @@ function Survey() {
         },
             body: JSON.stringify(answers)
         });
-    const noriRes = await res.json();
-    console.log(noriRes);
+        const noriRes = await res2.json();
+        console.log(noriRes);
 
-    if (res.status == 200 && res2.status == 200)
-    {
-        console.log("Post successful");
-    }
-    else {
-        console.log("Error. Did not return status code 200.");
-    }
+        if (res.status == 200 && res2.status == 200)
+        {
+            console.log("Post successful");
+        }
+        else {
+            console.log("Error. Did not return status code 200.");
+        }
     }
     return (
         <form id='survey'>
