@@ -1,19 +1,25 @@
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
-import Navbar from './Navbar';
-import Survey from './Survey';
-import About from './About';
 import Recycle from './Recycle';
-
+import Navbar from './Navbar';
+import About from './About';
+import Survey from './Survey';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      {/* <About /> */}
-      < Recycle />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Navbar />} >
+          <Route path="/" element={<About />} />
+          <Route path="/About.js" element={<About />} />
+          <Route path="/Survey.js" element={<Survey />} /> 
+          <Route path="/Recycle.js" element={<Recycle />} /> 
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

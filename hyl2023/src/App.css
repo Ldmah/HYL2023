@@ -164,3 +164,71 @@
   height: 60px;
   margin-top: 20px;
 }
+#survey{
+  margin-top: 5rem;
+  padding-left: 1rem;
+}
+input[type = "text"] {
+  width: 20rem;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* RECYCLE.JS CSS */
+#Recycle {
+  /* margin-top: 20rem; */
+  margin-top: 50px !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.recycle-title {
+  background-image: url(https://utahrecyclingalliance.org/wp-content/uploads/2019/06/1-1024x512.png);
+  background-size: contain;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.recycle-title > h2 {
+  color: black; 
+  font-weight: bolder;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 4.4rem;
+  opacity: 1; 
+}
+#recycling-form {
+  /* background-image: url(https://4kwallpapers.com/images/wallpapers/aesthetic-landscape-grass-field-green-grass-clear-sky-blue-1920x1200-1405.png);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85; */
+
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#recycling-form > div {
+  /* margin-top: 80px; */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#recycling-form > div > button {
+  width: 200px;
+  height: 50px;
+  margin-top: 20px;
+}
+#recycling-form > div > input {
+  width: 770px;
+  height: 60px;
+  margin-top: 20px;
+}

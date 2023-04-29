@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
 function Navbar() {
@@ -10,6 +10,7 @@ function Navbar() {
     }
 
     return (
+        <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top custom-nav" data-bs-theme="dark">
             <div className="container-fluid">
                 {/* <a className="navbar-brand fw-bold" href="#">Team Nori Elite - HYL 2023</a> */}
@@ -22,12 +23,16 @@ function Navbar() {
                 <div className={`collapse navbar-collapse ${collapsed ? '' : 'show'}`} id="navbarNavAltMarkup">
                     <div className="navbar-nav ms-auto navbar-collapse-custom">
                         <a className="nav-link active me-3" aria-current="page" href="/About.js">About Us</a>
-                        <a className="nav-link me-3" href="#mission">Disposal Help</a>
+                        <a className="nav-link me-3" href="Recycle.js">Disposal Help</a>
                         <a className="nav-link me-3" href="/Survey.js">Survey</a>
                     </div>
                 </div>
             </div>
         </nav>
+        <div>
+            <Outlet />
+         </div>   
+        </>
     )
 }
 
