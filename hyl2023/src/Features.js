@@ -1,4 +1,7 @@
+
+
 function Features() {
+
     return (
         <div id="features">
             <h1>Features</h1>
@@ -9,7 +12,7 @@ function Features() {
                             <p className="card-text">
                                 This functionality uses OpenAI to quickly and easily provide instructions regarding waste disposal for a material or item.
                             </p>
-                            <a href="#" className="btn btn-primary">See More</a>
+                            <a href="/Recycle.js" className="btn btn-primary">See More</a>
                         </div>
                     </div>
                     <div className="card">
@@ -20,7 +23,7 @@ function Features() {
                                 The quick survey is designed to help you gain insights into your waste management habits and identify areas where you can make improvements. 
                                 The survey might ask questions about the type of waste you produce, how you dispose of it, and your recycling habits.
                                 </p>
-                                <a href="#" className="btn btn-primary">See More</a>
+                                <a href="/Survey.js" className="btn btn-primary">See More</a>
                             </div>
                         </div>  
                     </div> 
