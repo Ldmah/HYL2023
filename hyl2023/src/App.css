@@ -38,9 +38,70 @@
 } */
 
 #about {
-  margin-top: 20rem;
+  /* margin-top: 20rem; */
+  margin-top: 50px !important;
+  min-height: 100vh;
+  background-color: #0A4D68;
+  color: white;
+}
+.about-team-name {
+  background-image: url(https://cosmosmagazine.com/wp-content/uploads/2023/02/GettyImages-1306441450.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.75; */
+}
+.about-team-name > h2 {
+  color: white; 
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+  opacity: 1; 
+}
+.about-us-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 55px;
+}
+.about-us-text > h2 {
+  font-weight: bold;
+  border-bottom: 3px solid rgb(1, 122, 1);
+}
+.about-us-text > div {
+  display: flex;
+}
+.about-us-text > div > p {
+  margin-left: 80px;
+  margin-top: 60px;
+  max-width: 700px;
+  font-size: 1.4rem;
 }
 
+.text-border {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+}
+
+.picture {
+  max-width: 20rem;
+  max-height: 20rem;
+  width: auto;
+  height: auto;
+}
+
+.about-contact-info {
+  
+}
 #survey{
   margin-top: 20rem;
 }
