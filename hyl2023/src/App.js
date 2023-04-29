@@ -4,14 +4,15 @@ import './App.css';
 import Navbar from './Navbar';
 import Survey from './Survey';
 import About from './About';
-
+import Recycle from './Recycle';
 
 
 function App() {
   return (
     <>
       <Navbar />
-      <About />
+      {/* <About /> */}
+      < Recycle />
     </>
   );
 }
