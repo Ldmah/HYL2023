@@ -181,9 +181,16 @@ function Survey() {
             </div>
             <div className={pageNum == 2?'q6':"hidden"}>
                 <span>6. On average, how many pounds of food do you waste per week?</span>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Amount of Food Wasted(pounds)" value = {foodWaste}  onChange={(e) => { setFoodWaste(e.target.value); jsonStore({ q6: e.target.value })}} reqiured/>
-                </div>
+                <select class="custom-select" value={select8} onChange={(e) => { setSelect8(e.target.value); jsonStore({ q8: e.target.value })}} >
+                            <option selected>Choose...</option>
+                            <option value="1">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="2">4</option>
+                            <option value="3">5</option>
+                            <option value="3">6</option>
+                            <option value="4">7</option>
+                        </select>
             </div>
             <div className={pageNum == 3?'q7':"hidden"}>
                 <span>7. Do you print double-sided or use digital resources instead of printing to reduce paper waste?</span>
