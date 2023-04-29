@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
 function Navbar() {
@@ -10,6 +10,7 @@ function Navbar() {
     }
 
     return (
+        <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top custom-nav" data-bs-theme="dark">
             <div className="container-fluid">
                 <a className="navbar-brand fw-bold" href="#">Team Nori Elite - HYL 2023</a>
@@ -26,6 +27,10 @@ function Navbar() {
                 </div>
             </div>
         </nav>
+        <div>
+            <Outlet />
+         </div>   
+        </>
     )
 }
 
