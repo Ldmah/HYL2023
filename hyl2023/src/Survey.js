@@ -280,11 +280,11 @@ function Survey() {
             generate(answers); 
             }}>
                 {isLoading ? (
-                                <div className="spinner-border text-light" role="status">
-                                    <span className="visually-hidden">&nbsp; Loading...</span>
-                                </div>
-                            ) : (
-                                "Submit"
+                    <div className="spinner-border text-light" role="status">
+                        <span className="visually-hidden">&nbsp; Loading...</span>
+                    </div>
+                ) : (
+                    "Submit"
                 )}
             
             </button>        
