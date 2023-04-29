@@ -13,36 +13,42 @@ def lambda_handler(event, context):
         WithDecryption=True
     )
 
-    gpt_key = response["Parameters"][0]["Value"]
-
-    body = event["body"] # Need to retrieve all data here as a json
-
-    # # THINGS TO DO HERE
+   # # THINGS TO DO HERE
     # # 1. Save uuid (or id) into a variable (make sure this is sent in header, not body)
     # # 2. Save all survey information into a string
     # # 3. Make a call via the gpt function
     # # 4. Save the response from the gpt function into data (as shown below)
     # # 5. SORT USER INFORMATION INTO NUMERICAL VALUES FOR COMPARISON LATER (INTO DYNAMODB, WILL NEED TO EDIT DATA JSON DIRECTLY BENEATH THIS --> DEPENDS ON THE QUESTIONS WE ASK)
 
-    # data = {
-    #     id: submission_id,
-    #     gpt_string: gpt_response,
-    #     score: survey_score,
-    # }
+    gpt_key = response["Parameters"][0]["Value"]
+    submission_id = event["headers"]["id"]
 
-    # json_data = json.dumps(data)
+    body = event["body"] # Need to retrieve all data here as a json
+    numerical_dict = numericalDict(body) # creates numerical dictionary
+    prompt_dict = transformPromptDictionary(numerical_dict) # creates prompt dictionary
+    string_data = describeDictionary(prompt_dict) # creates string data
+    survey_score = sumScore(numerical_dict) # creates response sum
+    gpt_response = gpt(string_data, gpt_key) # creates gpt response
 
-    # try:
-    #     body = json.loads(json_data)
-    #     table.put_item(Item=body)
+    data = {
+        "id": submission_id,
+        "gpt_string": gpt_response,
+        "score": survey_score
+    }
+
+    json_data = json.dumps(data)
+
+    try:
+        body = json.loads(json_data)
+        table.put_item(Item=body)
     
-    # except Exception as e:
-    #     print(e)
-    #     print('Error loading JSON data')
-    #     return {
-    #         'statusCode': 500,
-    #         'body': json.dumps('Error loading JSON data')
-    #     }
+    except Exception as e:
+        print(e)
+        print('Error loading JSON data')
+        return {
+            'statusCode': 500,
+            'body': json.dumps('Error loading JSON data')
+        }
     print("Terraform test success")
         
     return {
@@ -83,18 +89,17 @@ def numericalDict(body):
     Transform the value of q8 in a dictionary to a numerical score based on a range.
 
     Args:
-        body (dict): A dictionary containing the key 'q8' with a value that is either an int or a float.
+        body (dict): A dictionary containing the key 'q6' with a value that is either an int or a float.
 
     Returns:
-        dict: A new dictionary with the same keys as the input, but with the value of 'q8' transformed to a numerical score.
+        dict: A new dictionary with the same keys as the input, but with the value of 'q6' transformed to a numerical score.
 
     Ex:
-        >>> body = {'q1':5,'q8': 12}
+        >>> body = {'q1':5,'6': 12}
         >>> numericalSort(body)
         {'q8': 0.5}
     """
 
-    ## FIX q8 TOO
     q6_value = body.get('q6')
     q8_value = body.get('q8')
     if isinstance(q6_value, (int, float)):
@@ -108,17 +113,7 @@ def numericalDict(body):
             body['q6'] = 0.75
         else:
             body['q6'] = 1
-    if isinstance(q8_value, (int, float)):
-        if q6_value < 1:
-            body['q8'] = 0
-        elif q6_value <= 2:
-            body['q8'] = 0.25
-        elif q6_value <= 3:
-            body['q8'] = 0.5
-        elif q6_value <= 4:
-            body['q8'] = 0.75
-        else:
-            body['q8'] = 1
+
     return body
 
 
