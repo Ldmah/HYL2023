@@ -15,12 +15,13 @@ function Survey() {
 
     const generate = async(answers) => { 
         console.log("asdf")
+        temp_id = uuidv4()
         const res = await fetch ("https://jc43jylvi73olagacvrdizwgxm0rzqjm.lambda-url.ca-central-1.on.aws/",
             {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",
-                "id": uuidv4(),
+                "id": temp_id,
             },
                 body: JSON.stringify(answers)
             });
@@ -33,6 +34,25 @@ function Survey() {
         else {
             console.log("Error. Did not return status code 200.");
         }
+        const res2 = await fetch ("https://tye5uzke72oc2auxh6bqe35aj40etqji.lambda-url.ca-central-1.on.aws/",
+        {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json",
+            "id": temp_id,
+        },
+            body: JSON.stringify(answers)
+        });
+    const noriRes = await res.json();
+    console.log(noriRes);
+
+    if (res.status == 200 && res2.status == 200)
+    {
+        console.log("Post successful");
+    }
+    else {
+        console.log("Error. Did not return status code 200.");
+    }
     }
     return (
         <form id='survey'>
