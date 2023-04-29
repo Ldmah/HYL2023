@@ -176,7 +176,7 @@ resource "aws_lambda_function_url" "retrieve-url" {
   cors {
     allow_credentials = true
     allow_origins     = ["*"]
-    allow_methods     = ["GET"]
+    allow_methods     = ["GET", "POST"]
     allow_headers     = ["*"]
     expose_headers    = ["keep-alive", "date"]
   }
