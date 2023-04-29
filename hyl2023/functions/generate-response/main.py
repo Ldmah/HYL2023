@@ -106,15 +106,15 @@ def numericalDict(body):
     q6_value = body.get('q6')
     if isinstance(q6_value, (int, Decimal)):
         if q6_value < 5:
-            body['q6'] = 0
-        elif q6_value <= 10:
-            body['q6'] = 0.25
-        elif q6_value <= 15:
-            body['q6'] = 0.5
-        elif q6_value <= 20:
-            body['q6'] = 0.75
-        else:
             body['q6'] = 1
+        elif q6_value <= 10:
+            body['q6'] = 2
+        elif q6_value <= 15:
+            body['q6'] = 3
+        elif q6_value <= 20:
+            body['q6'] = 4
+        else:
+            body['q6'] = 4
 
     return body
 
@@ -135,11 +135,11 @@ def transformPromptDictionary(dictionary):
     """
     prompt_dict = {}
     for key, value in dictionary.items():
-        if Decimal(value) >= 0.75:
+        if Decimal(value) >= 3:
             prompt_dict[key] = 'good'
         else:
-            prompt_dict[key] = 'bad' if Decimal(value) <= 0.5 else value
-            prompt_dict[key] = 'good' if Decimal(value) == 1 else prompt_dict[key]
+            prompt_dict[key] = 'bad' if Decimal(value) <= 2 else value
+            prompt_dict[key] = 'good' if Decimal(value) == 4 else prompt_dict[key]
     return prompt_dict
 
 
